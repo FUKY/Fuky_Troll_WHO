@@ -1,9 +1,13 @@
 fileFormatVersion: 2
 guid: 6696323586b0e4d45852e0c78643bf5e
-timeCreated: 1431278375
-licenseType: Free
+timeCreated: 1431229394
+licenseType: Pro
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Doctors-and-nurses-cartoon-icon-vector-material-set_0
+    21300002: Doctors-and-nurses-cartoon-icon-vector-material-set_1
+    21300004: Doctors-and-nurses-cartoon-icon-vector-material-set_2
+    21300006: Doctors-and-nurses-cartoon-icon-vector-material-set_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,14 +34,14 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -48,7 +52,47 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Doctors-and-nurses-cartoon-icon-vector-material-set_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 340
+        width: 273
+        height: 306
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Doctors-and-nurses-cartoon-icon-vector-material-set_1
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 342
+        width: 288
+        height: 305
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Doctors-and-nurses-cartoon-icon-vector-material-set_2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 292
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Doctors-and-nurses-cartoon-icon-vector-material-set_3
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 43
+        width: 274
+        height: 257
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
