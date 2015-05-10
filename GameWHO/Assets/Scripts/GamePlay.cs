@@ -107,11 +107,15 @@ public class GamePlay : MonoBehaviour {
     public void AddScore()
     {
         TypeController type = gameObject.GetComponentInChildren<TypeController>();
+        if (type == null)
+        {
+            return;
+        }
         control.score += type.diem;     
     }
     public void CheckButtonParent()
     {
-        if (listType[0] == null)
+        if (listType.Count == 0)
         {
             return;
         }
@@ -126,7 +130,7 @@ public class GamePlay : MonoBehaviour {
     }
     public void CheckButtonGear()
     {
-        if (listType[0] == null)
+        if (listType.Count == 0)
         {
             return;
         }
@@ -142,12 +146,10 @@ public class GamePlay : MonoBehaviour {
     {
         if (control.gOver == false)
         {
+            
             for (int i = 0; i < listType.Count - 1; i++)
             {
-                for (int j = i + 1; j < listType.Count; j++)
-                {
-                    listType[i] = listType[j];
-                }
+                listType[i] = listType[i+1];                
             }
             listType.RemoveAt(listType.Count - 1);
         }
