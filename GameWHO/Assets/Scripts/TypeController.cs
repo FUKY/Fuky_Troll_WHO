@@ -4,11 +4,20 @@ using System.Collections;
 public class TypeController : MonoBehaviour {
 
     public int inDex;
-    private Controller control;
+   
+    private GamePlay gamePlay;
+    private Rigidbody2D rigid;
+    public float floatRigidbody;
+    public int diem;
+    
 	// Use this for initialization
 	void Start () {
-        control = gameObject.GetComponentInParent<Controller>();
-        if (control == null)
+        diem = 10;
+        floatRigidbody = 0.1f;
+        gamePlay = gameObject.GetComponentInParent<GamePlay>();
+        rigid = gameObject.GetComponent<Rigidbody2D>();
+        rigid.gravityScale = floatRigidbody;
+        if (gamePlay == null)
         {
             Debug.Log("chua co");
         }
@@ -16,19 +25,23 @@ public class TypeController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        //rigid.gravityScale = floatRigidbody;
 	}
+    public void DesTroy()
+    {
+        Destroy(gameObject);
+    }
+
     public void CheckIndex(int indexButton)
     {
         if (inDex == indexButton)
         {
-            control.AddScore();
-            control.RandomType();
+            gamePlay.AddScore();
             Destroy(gameObject);
         }
         else
         {
-            control.GameOver();
+            gamePlay.GameOver();
         }
     }
 }

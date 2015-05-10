@@ -4,91 +4,65 @@ using UnityEngine.UI;
 
 public class Controller : MonoBehaviour {
 
-    public GameObject[] listTypeParent;
-    public GameObject[] listGear;
-    public RectTransform rectTransform;
-    public Transform transform;
-
-    public float timeDelayRandom;
-    private float timeDelay = 0;
-
-    public int indexButton = 0;
-    public int score;
+    public GameObject gameOver;
+    public GameObject gameStart;
+    public GameObject gamePlay;
+    public GameObject gamePlayLeft;
+    public GameObject gamePlayRight;
+    public bool gOver = false;
     public Text textScore;
-    void Awake()
-    {
-        score = 10;
-    }
-    // Use this for initialization
-    void Start()
-    {
-        RandomType();
-    }
+    public Text textScoreOver;
+    public Text hightScore;
 
-    // Update is called once per frame
-    void Update()
-    {
+    public int score;
 
-    }
-    public void RandomType()
-    {
-        int index;
-        int indexParent;
-        int indexGear;
-        index = Random.Range(0, 2);
-        if (index == 0)
-        {
-            indexParent = Random.Range(0, 3);
-            GameObject type = Instantiate(listTypeParent[indexParent], transform.position, Quaternion.identity) as GameObject;
-            type.transform.SetParent(rectTransform);
-            //type.transform.localPosition = Vector3.zero;
-            type.transform.localScale = Vector3.one;
-            type.GetComponent<TypeController>().inDex = index;
-        }
-        if(index == 1)
-        {
-            indexGear = Random.Range(0, 3);
-            GameObject type = Instantiate(listGear[indexGear], transform.position, Quaternion.identity) as GameObject;
-            type.transform.SetParent(rectTransform);
-            //type.transform.localPosition = Vector3.zero;
-            type.transform.localScale = Vector3.one;
-            type.GetComponent<TypeController>().inDex = index;
-        }
-        
-    }
+    private GamePlay gamePlayControlLeft;
+    private GamePlay gamePlayControlRight;
+    
+	// Use this for initialization
+	void Start () {
+        score = 0;
+        gamePlayControlLeft = gamePlayLeft.GetComponent<GamePlay>();
+        gamePlayControlRight = gamePlayRight.GetComponent<GamePlay>();
+	}
+	
+	// Update is called once per frame
+	void Update () {
+        AddScore();
+	}
     public void GameOver()
-    {
-        Debug.Log("GAME OVER");
+    {   
+        gameOver.active = true;
+        gamePlayControlLeft.GameRelay();
+        gamePlayControlRight.GameRelay();
+        textScoreOver.text = score.ToString();
+        SaveScore();
     }
     public void AddScore()
+    {        
+        textScore.text = score.ToString();
+    }
+    public void GameStart()
     {
+        gamePlay.active = true;
+        gameStart.active = false;
+    }
+    public void RelayGame()
+    {
+        gameOver.active = false;
+        gOver = false;
+        score = 0;
+
+        gamePlayControlLeft.RandomType();
+        gamePlayControlRight.RandomType();
         
     }
-    public void CheckButtonParent()
+    void SaveScore()
     {
-        indexButton = 0;
-        TypeController type = gameObject.GetComponentInChildren<TypeController>();
-        if (type == null)
+        if (score > PlayerPrefs.GetInt("score"))
         {
-            Debug.Log("hehe");
+            PlayerPrefs.SetInt("score",score);
         }
-        Debug.Log("haha");
-        type.CheckIndex(indexButton);
-
-    }
-    public void CheckButtonGear()
-    {
-        indexButton = 1;
-        TypeController type = gameObject.GetComponentInChildren<TypeController>();
-        if (type == null)
-        {
-            Debug.Log("hehe");
-        }
-        Debug.Log("haha");
-        type.CheckIndex(indexButton);
-    }
-    void OnTriggerEnter2D()
-    {
-        GameOver();
+        hightScore.text = PlayerPrefs.GetInt("score").ToString();
     }
 }
