@@ -17,7 +17,7 @@ public class TypeController : MonoBehaviour {
 	void Start () {
         
         diem = 10;
-        floatRigidbody = 0.1f + (float)(control.score * 0.005f);
+        floatRigidbody = 0.1f + (float)(control.score * 0.003f);
         gamePlay = gameObject.GetComponentInParent<GamePlay>();
         rigid = gameObject.GetComponent<Rigidbody2D>();
         rigid.gravityScale = floatRigidbody;
