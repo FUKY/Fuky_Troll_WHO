@@ -78,8 +78,6 @@ public class GamePlay : MonoBehaviour {
             //type.transform.localPosition = Vector3.zero;
             type.transform.localScale = Vector3.one;
             type.GetComponent<TypeController>().inDex = index;
-            Debug.Log(System.String.Format("floatRigidbody = {0}", type.GetComponent<TypeController>().floatRigidbody));
-
             listType.Add(type);
         }
         

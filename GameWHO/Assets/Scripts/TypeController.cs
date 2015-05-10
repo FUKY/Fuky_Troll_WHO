@@ -40,6 +40,7 @@ public class TypeController : MonoBehaviour {
     {
         if (inDex == indexButton)
         {
+            gamePlay.AddScore();
             Destroy(gameObject);
         }
         else
