@@ -15,6 +15,15 @@ public class BoundaryAddScore : MonoBehaviour {
 	}
     void OnTriggerEnter2D(Collider2D col)
     {
-        col.GetComponent<TypeController>().diem = 20;
+        if (col.tag == "item") 
+        {
+            TypeController typeController = col.GetComponent<TypeController>();
+            if (typeController != null) 
+            {
+                typeController.diem = 20;
+            }
+            
+        }
+        
     }
 }
