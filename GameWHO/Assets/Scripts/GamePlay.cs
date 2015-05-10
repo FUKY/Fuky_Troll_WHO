@@ -111,18 +111,32 @@ public class GamePlay : MonoBehaviour {
     }
     public void CheckButtonParent()
     {
-        indexButton = 0;
-        TypeController type = listType[0].GetComponent<TypeController>();        
-        type.CheckIndex(indexButton);
-        SwapListType();
+        if (listType[0] == null)
+        {
+            return;
+        }
+        else
+        {
+            indexButton = 0;
+            TypeController type = listType[0].GetComponent<TypeController>();
+            type.CheckIndex(indexButton);
+            SwapListType();
+        }
 
     }
     public void CheckButtonGear()
     {
-        indexButton = 1;
-        TypeController type = listType[0].GetComponent<TypeController>();        
-        type.CheckIndex(indexButton);
-        SwapListType();
+        if (listType[0] == null)
+        {
+            return;
+        }
+        else
+        {
+            indexButton = 1;
+            TypeController type = listType[0].GetComponent<TypeController>();
+            type.CheckIndex(indexButton);
+            SwapListType();
+        }
     }
     public void SwapListType()
     {
