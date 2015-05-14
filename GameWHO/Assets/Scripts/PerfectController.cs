@@ -19,12 +19,12 @@ public class PerfectController : MonoBehaviour {
 
     public void MoveStart() 
     {
-        transform.localPosition = posStart;
-        iTween.MoveTo(gameObject, iTween.Hash(
-            iT.MoveTo.position, posMove,
-            iT.MoveTo.islocal, true,
-            iT.MoveTo.time, 1,
-            iT.MoveTo.easetype, iTween.EaseType.easeOutBack));
+        	transform.localPosition = posStart;
+        	iTween.MoveTo(gameObject, iTween.Hash(
+            	iT.MoveTo.position, posMove,
+            	iT.MoveTo.islocal, true,
+            	iT.MoveTo.time, 1,
+            	iT.MoveTo.easetype, iTween.EaseType.easeOutBack));
     }
 
     public  void FinishAnimation() 

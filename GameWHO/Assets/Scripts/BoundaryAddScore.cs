@@ -15,30 +15,30 @@ public class BoundaryAddScore : MonoBehaviour {
 	void Update () {
 	
 	}
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D col)
     {
         if (col.tag == "item") 
         {
             TypeController typeController = col.GetComponent<TypeController>();
-            if (typeController != null) 
+            if (typeController != null && Input.GetButton("Fire1") == true) 
             {
                 typeController.diem = 20;
                 GameObject perfectObj = Instantiate(perfectPrefab, Vector3.zero, Quaternion.identity) as GameObject;
                 perfectObj.transform.SetParent(perfectContainer);
                 perfectObj.GetComponent<PerfectController>().MoveStart();
-                //perfectContainer.GetComponent<P
 
             }
             
         }
-        
     }
 
     [ContextMenu("TestPerfect")]
     void TestPerfect() 
     {
-        GameObject perfectObj = Instantiate(perfectPrefab, Vector3.zero, Quaternion.identity) as GameObject;
-        perfectObj.transform.SetParent(perfectContainer);
-        perfectObj.GetComponent<PerfectController>().MoveStart();
+		if (Input.GetButton ("Fire1")) {
+			GameObject perfectObj = Instantiate (perfectPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+			perfectObj.transform.SetParent (perfectContainer);
+			perfectObj.GetComponent<PerfectController> ().MoveStart ();
+		}
     }
 }

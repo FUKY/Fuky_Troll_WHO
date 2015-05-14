@@ -20,7 +20,10 @@ public class TypeController : MonoBehaviour {
         floatRigidbody = 0.1f + (float)(control.score * 0.003f);
         gamePlay = gameObject.GetComponentInParent<GamePlay>();
         rigid = gameObject.GetComponent<Rigidbody2D>();
-        rigid.gravityScale = floatRigidbody;
+        //rigid.gravityScale = floatRigidbody;
+		float speed = 0;
+		speed += floatRigidbody;
+		rigid.velocity = new Vector2 (transform.position.x, speed);
         if (gamePlay == null)
         {
             Debug.Log("chua co");
@@ -42,6 +45,7 @@ public class TypeController : MonoBehaviour {
         {
             gamePlay.AddScore();
             Destroy(gameObject);
+			ExplosionController.Instance.ExplosionIcon(gameObject.GetComponent<RectTransform>().transform);
         }
         else
         {

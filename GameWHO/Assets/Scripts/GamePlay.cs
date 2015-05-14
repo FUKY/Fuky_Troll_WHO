@@ -80,7 +80,6 @@ public class GamePlay : MonoBehaviour {
             type.GetComponent<TypeController>().inDex = index;
             listType.Add(type);
         }
-        
     }
     public void GameOver()
     {
@@ -121,10 +120,10 @@ public class GamePlay : MonoBehaviour {
         {
             indexButton = 0;
             TypeController type = listType[0].GetComponent<TypeController>();
-            type.CheckIndex(indexButton);
+			type.CheckIndex(indexButton);
+			//ExplosionController.Instance.ExplosionIcon(listType[0].GetComponent<RectTransform>().transform);
             SwapListType();
         }
-
     }
     public void CheckButtonGear()
     {
@@ -136,7 +135,8 @@ public class GamePlay : MonoBehaviour {
         {
             indexButton = 1;
             TypeController type = listType[0].GetComponent<TypeController>();
-            type.CheckIndex(indexButton);
+			type.CheckIndex(indexButton);
+			//ExplosionController.Instance.ExplosionIcon(listType[0].GetComponent<RectTransform>().transform);
             SwapListType();
         }
     }
